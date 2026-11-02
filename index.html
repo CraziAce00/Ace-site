@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ace Hub — Roblox-inspired Client & Studio</title>
+    <meta
+      name="description"
+      content="Feature-rich Roblox-inspired client and studio hub for avatar customization, game joining, friends, profiles, and social discovery."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">A</div>
+          <div class="brand-text">Ace Hub</div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-item active">Home</button>
+          <button class="nav-item">Discover</button>
+          <button class="nav-item">Create</button>
+          <button class="nav-item">Avatar</button>
+          <button class="nav-item">Groups</button>
+        </nav>
+
+        <div class="top-actions">
+          <div class="search-box">
+            <span>⌕</span>
+            <input type="text" placeholder="Search games, users, creator hubs" />
+          </div>
+          <button class="circle-btn" aria-label="Notifications">🔔</button>
+          <button class="circle-btn" aria-label="Settings">⚙</button>
+          <div class="profile-pill">
+            <div class="mini-avatar"></div>
+            <span>CraziAce</span>
+          </div>
+        </div>
+      </header>
+
+      <aside class="left-rail">
+        <div class="rail-card user-card">
+          <div class="avatar-stage">
+            <div class="character" id="avatarCharacter" aria-label="Avatar preview">
+              <div class="head"></div>
+              <div class="body"></div>
+              <div class="arm left"></div>
+              <div class="arm right"></div>
+              <div class="leg left"></div>
+              <div class="leg right"></div>
+              <div class="accessory"></div>
+            </div>
+          </div>
+
+          <div class="player-summary">
+            <h3>CraziAce</h3>
+            <p>Level 32 • Builder • Creator</p>
+          </div>
+
+          <div class="stats-row">
+            <div>
+              <strong>12.4K</strong>
+              <span>Followers</span>
+            </div>
+            <div>
+              <strong>847</strong>
+              <span>Following</span>
+            </div>
+            <div>
+              <strong>41</strong>
+              <span>Badges</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rail-card">
+          <div class="card-header">
+            <h4>Quick Actions</h4>
+          </div>
+          <div class="quick-buttons">
+            <button class="action-btn primary">Play</button>
+            <button class="action-btn">Avatar</button>
+            <button class="action-btn">Inventory</button>
+            <button class="action-btn">Friends</button>
+            <button class="action-btn">Studio</button>
+            <button class="action-btn">Profile</button>
+          </div>
+        </div>
+
+        <div class="rail-card">
+          <div class="card-header">
+            <h4>Friends</h4>
+            <span class="count-badge" id="onlineCount">28 online</span>
+          </div>
+          <div id="friendList" class="friend-list" aria-live="polite"></div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="hero-panel">
+          <div class="hero-copy">
+            <span class="eyebrow">Featured Experience</span>
+            <h1>Adventurers of the Neon City</h1>
+            <p>
+              Explore a futuristic world, race rivals, build squads, collect rare loot,
+              and join a massive sandbox with daily creator events.
+            </p>
+            <div class="hero-actions">
+              <button class="play-btn large" data-game="Neon City">Play Now</button>
+              <button class="secondary-btn large">View Details</button>
+            </div>
+          </div>
+
+          <div class="hero-art" aria-hidden="true">
+            <div class="city-card">
+              <div class="floating-card">
+                <span>Players</span>
+                <strong>18,462</strong>
+              </div>
+              <div class="mini-planet"></div>
+              <div class="tower tower-1"></div>
+              <div class="tower tower-2"></div>
+              <div class="tower tower-3"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <div class="main-panel">
+            <div class="panel-header">
+              <h3>Recommended for you</h3>
+              <a href="#">See all</a>
+            </div>
+
+            <div class="game-grid">
+              <article class="game-card">
+                <div class="thumb thumb-one"></div>
+                <div class="game-meta">
+                  <h4>Obby Rush</h4>
+                  <p>Adventure • 8.8M visits</p>
+                </div>
+                <button class="join-btn" data-game="Obby Rush">Join</button>
+              </article>
+
+              <article class="game-card">
+                <div class="thumb thumb-two"></div>
+                <div class="game-meta">
+                  <h4>Tycoon Empire</h4>
+                  <p>Simulation • 3.6M visits</p>
+                </div>
+                <button class="join-btn" data-game="Tycoon Empire">Join</button>
+              </article>
+
+              <article class="game-card">
+                <div class="thumb thumb-three"></div>
+                <div class="game-meta">
+                  <h4>Battle Arena</h4>
+                  <p>Action • 12.2M visits</p>
+                </div>
+                <button class="join-btn" data-game="Battle Arena">Join</button>
+              </article>
+
+              <article class="game-card">
+                <div class="thumb thumb-four"></div>
+                <div class="game-meta">
+                  <h4>Build Land</h4>
+                  <p>Creative • 1.3M visits</p>
+                </div>
+                <button class="join-btn" data-game="Build Land">Join</button>
+              </article>
+            </div>
+          </div>
+
+          <div class="side-panel">
+            <div class="panel-header">
+              <h3>Avatar Studio</h3>
+              <button class="tiny-btn">Customize</button>
+            </div>
+
+            <div class="avatar-editor">
+              <div class="editor-controls">
+                <label>
+                  Skin tone
+                  <input type="range" id="skinTone" min="0" max="100" value="52" />
+                </label>
+                <label>
+                  Height
+                  <input type="range" id="heightScale" min="70" max="140" value="100" />
+                </label>
+                <label>
+                  Shirt
+                  <select id="shirtStyle">
+                    <option value="classic">Classic</option>
+                    <option value="sport">Sport</option>
+                    <option value="hoodie">Hoodie</option>
+                  </select>
+                </label>
+                <label>
+                  Accessory
+                  <select id="accessoryStyle">
+                    <option value="none">None</option>
+                    <option value="visor">Visor</option>
+                    <option value="hat">Hat</option>
+                    <option value="glasses">Glasses</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="preview-box">
+                <div class="character large" id="editorAvatar">
+                  <div class="head"></div>
+                  <div class="body"></div>
+                  <div class="arm left"></div>
+                  <div class="arm right"></div>
+                  <div class="leg left"></div>
+                  <div class="leg right"></div>
+                  <div class="accessory"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="lower-panels">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>My Games</h3>
+              <a href="#">Manage</a>
+            </div>
+
+            <div class="list">
+              <div class="list-item">
+                <div>
+                  <div class="game-dot red"></div>
+                  <div class="item-copy">
+                    <strong>Sky Base</strong>
+                    <span>Last played 2h ago</span>
+                  </div>
+                </div>
+                <button class="mini-join">Resume</button>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <div class="game-dot blue"></div>
+                  <div class="item-copy">
+                    <strong>Prison Break</strong>
+                    <span>Last played yesterday</span>
+                  </div>
+                </div>
+                <button class="mini-join">Resume</button>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <div class="game-dot green"></div>
+                  <div class="item-copy">
+                    <strong>CraftTown</strong>
+                    <span>Last played 3 days ago</span>
+                  </div>
+                </div>
+                <button class="mini-join">Resume</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Profile</h3>
+              <button class="tiny-btn" id="viewProfileBtn">View</button>
+            </div>
+
+            <div class="profile-card">
+              <div class="profile-header">
+                <div class="profile-pic"></div>
+                <div>
+                  <h4 id="profileName">CraziAce</h4>
+                  <p id="profileTag">@craziace00</p>
+                </div>
+              </div>
+
+              <div class="profile-metrics">
+                <div>
+                  <strong>214</strong>
+                  <span>Friends</span>
+                </div>
+                <div>
+                  <strong>566</strong>
+                  <span>Followers</span>
+                </div>
+                <div>
+                  <strong>9.8K</strong>
+                  <span>Visits</span>
+                </div>
+              </div>
+
+              <div class="badge-row">
+                <span>Builder</span>
+                <span>Creator</span>
+                <span>Collector</span>
+                <span>Speedrun</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Activity</h3>
+              <a href="#">Show all</a>
+            </div>
+
+            <div class="activity-feed">
+              <div class="activity-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>RaeZon joined</strong>
+                  <span>Battle Arena • 2 minutes ago</span>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>You earned a medal</strong>
+                  <span>Sky Base • 15 minutes ago</span>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>New friend request</strong>
+                  <span>From pixelnova_01</span>
+                </div>
+              </div>
+
+              <div class="activity-item">
+                <div class="dot"></div>
+                <div>
+                  <strong>Verified creation</strong>
+                  <span>Dockside Town • 1 hour ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="right-rail">
+        <div class="rail-card">
+          <div class="panel-header">
+            <h4>Friends</h4>
+            <button class="tiny-btn" id="addFriendBtn">Add</button>
+          </div>
+
+          <div class="add-friend">
+            <input type="text" id="friendNameInput" placeholder="Add friend username" />
+            <button id="submitFriend">Add</button>
+          </div>
+
+          <div class="friends-panel-list" id="friendsPanelList"></div>
+        </div>
+
+        <div class="rail-card">
+          <div class="panel-header">
+            <h4>Studio</h4>
+            <span class="status green">Live</span>
+          </div>
+
+          <div class="studio-panel">
+            <div class="studio-box">
+              <span class="studio-tag">Build</span>
+              <strong>City Block Prototype</strong>
+              <small>Saved 12 minutes ago</small>
+            </div>
+            <div class="studio-grid">
+              <button>Scripts</button>
+              <button>Assets</button>
+              <button>Terrain</button>
+              <button>Particles</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="rail-card">
+          <div class="panel-header">
+            <h4>Chat</h4>
+            <span class="status green">Online</span>
+          </div>
+
+          <div class="chat-box">
+            <div class="chat-message incoming">
+              <span>pixelnova_01</span>
+              <p>Want to queue for Battle Arena?</p>
+            </div>
+            <div class="chat-message outgoing">
+              <span>You</span>
+              <p>Yeah, let’s do it after this build.</p>
+            </div>
+          </div>
+
+          <div class="chat-input">
+            <input type="text" placeholder="Type a message" />
+            <button>Send</button>
+          </div>
+        </div>
+
+        <div class="rail-card">
+          <div class="panel-header">
+            <h4>Inventory</h4>
+            <a href="#">Open</a>
+          </div>
+
+          <div class="inventory-grid">
+            <div class="item">🧢</div>
+            <div class="item">👟</div>
+            <div class="item">🕶️</div>
+            <div class="item">🧥</div>
+            <div class="item">⚽</div>
+            <div class="item">🎧</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="toast" id="toast" aria-live="polite">Friend added</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
